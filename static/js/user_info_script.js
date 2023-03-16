@@ -37,7 +37,8 @@ class Chatbox {
   }
 }
 
-
+var startChatButton = document.getElementById('start_chat');
+        startChatButton.disabled = true;
 
 // Select the form element
 var userInfoForm = document.querySelector('#user-info-form');
