@@ -98,10 +98,10 @@ cursor: pointer;
   border-radius: 10px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   padding: 0px;
-  }
-  
-  /* User Info Section */
-  .user_info {
+}
+
+/* User Info Section */
+.user_info {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -109,9 +109,9 @@ cursor: pointer;
   border-radius: 20px;
   width: 100%;
   margin-bottom: 20px;
-  }
-  
-  .user_info__input {
+}
+
+.user_info__input {
   display: flex;
   flex-direction: column;
   border-radius: 20px;
@@ -119,16 +119,16 @@ cursor: pointer;
   align-items: flex-start;
   margin-bottom: 20px;
   width: 100%;
-  }
-  
-  .user_info__input label {
+}
+
+.user_info__input label {
   font-size: 18px;
   font-weight: bold;
   border-radius: 20px;
   margin-bottom: 20px;
-  }
-  
-  .user_info__input input {
+}
+
+.user_info__input input {
   padding: 10px;
   border-radius: 5px;
   border: none;
@@ -137,48 +137,57 @@ cursor: pointer;
   width: 100%;
   background-color: #fff;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
-  }
-  
-  .user_info__input input:focus {
+}
+
+.user_info__input input:focus {
   outline: none;
   border-color: #1e87f0;
   box-shadow: 0px 0px 5px rgba(30, 135, 240, 0.3);
-  }
-  
-  .input-error-message {
+}
+
+.input-error-message {
   color: red;
   font-size: 14px;
   margin-top: 5px;
-  }
-  
-  /* Send OTP Button */
-  #send_otp {
+}
+
+/* Send OTP Button and OTP Input Field */
+.send-otp-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#send_otp {
   padding: 10px;
-  border-radius: 5px;
   border: none;
   background-color: #035b88;
   color: #fff;
   font-size: 16px;
   border-radius: 20px;
   cursor: pointer;
-  margin-top: 0px;
+  margin-top: -60px;
   margin-bottom: 15px;
+  margin-left: 180px;
   transition: background-color 0.3s ease-in-out;
-  }
-  
-  #send_otp:hover {
+}
+
+#send_otp:hover {
   background-color: #f7941d;
-  }
+}
+
 
  #otp-input {
   appearance: none;
   border: none;
+  flex-grow: 1;
   border-radius: 15px;
   background-color: #F8F8F8;
   font-size: 20px;
   text-align: center;
   padding: 20px;
   margin-bottom: 0px;
+  margin-right: 120px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   width: 150px;
   height: 40px;

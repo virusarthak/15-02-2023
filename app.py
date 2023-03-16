@@ -84,7 +84,7 @@ def send_otp_email():
     session['otp']=otp
     session.modified=True
     # set up email message
-    message = MIMEText(f'Your OTP for KMS CHATBOT is:- {otp}')
+    message = MIMEText(f'Your OTP for KMS CHATBOT is {otp}')
     message['From'] = 'vp629393@gmail.com'
     message['To'] = user_email
     message['Subject'] = 'OTP verification'
