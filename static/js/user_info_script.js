@@ -38,6 +38,7 @@ class Chatbox {
 }
 
 
+
 // Select the form element
 var userInfoForm = document.querySelector('#user-info-form');
 
@@ -145,7 +146,8 @@ sendOTPBtn.addEventListener('click', function(event) {
         var startChatButton = document.getElementById('start_chat');
         startChatButton.disabled = false;
       } else {
-        alert(data.message);
+        var errorMessage = document.querySelector('#error-message');
+        errorMessage.textContent = data.message;
       }
     })
     .catch(error => {

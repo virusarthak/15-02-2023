@@ -161,19 +161,19 @@ cursor: pointer;
 #send_otp {
   padding: 10px;
   border: none;
-  background-color: #035b88;
+  background-color: #f7941d;
   color: #fff;
   font-size: 16px;
   border-radius: 20px;
   cursor: pointer;
-  margin-top: -60px;
-  margin-bottom: 15px;
+  margin-top: 0px;
+  margin-bottom: -40px;
   margin-left: 180px;
   transition: background-color 0.3s ease-in-out;
 }
 
 #send_otp:hover {
-  background-color: #f7941d;
+  background-color:#8B8B8C;
 }
 
 
@@ -183,14 +183,14 @@ cursor: pointer;
   flex-grow: 1;
   border-radius: 15px;
   background-color: #F8F8F8;
-  font-size: 20px;
+  font-size: 18px;
   text-align: center;
   padding: 20px;
   margin-bottom: 0px;
   margin-right: 120px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   width: 150px;
-  height: 40px;
+  height: 30px;
 }
 
 #otp-input:focus {
@@ -221,17 +221,18 @@ cursor: pointer;
   padding: 10px;
   border-radius: 5px;
   border: none;
-  background-color: #035b88;
+  background-color: #8B8B8C;
   color: #fff;
   font-size: 16px;
   cursor: pointer;
   margin-top: 0px;
+  margin-right: 120px;
   border-radius: 20px;
   transition: background-color 0.3s ease-in-out;
   }
   
   #verify_otp:hover {
-  background-color: #f7941d;
+  background-color: #035b88;
   }
   
   /* Start Chat Button */
@@ -240,11 +241,12 @@ cursor: pointer;
   border-radius: 5px;
   border: none;
   border-radius: 20px;
-  background-color: #035b88;
+  background-color:#035b88 ;
   color: #fff;
   font-size: 16px;
   cursor: pointer;
-  margin-top: 20px;
+  margin-top: -35px;
+  margin-left: 180px;
   transition: background-color 0.3s ease-in-out;
   }
   
@@ -254,7 +256,7 @@ cursor: pointer;
 
 /* HEADER */
 .chatbox__header {
-  background: var(--primaryGradient);
+  background: #035b88;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -264,6 +266,7 @@ cursor: pointer;
   border-top-right-radius: 20px;
   box-shadow: var(--primaryBoxShadow);
 }
+
 
 .chatbox__image--header {
   margin-right: 10px;

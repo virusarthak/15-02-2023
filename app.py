@@ -4,6 +4,7 @@ from model import get_response
 from flask_session import Session
 from datetime import datetime
 import uuid
+import time 
 
 import random
 import smtplib
@@ -33,6 +34,7 @@ mysql = MySQL(app)
 @app.get("/")
 def info_get():
     return render_template("info.html")
+
 
 # To store the user data into the database 
 @app.route('/user_info', methods=['POST'])
@@ -75,16 +77,18 @@ def user_info():
     session['phone'] = phone
     return jsonify({'success': True})
 
+
+# This is for sending the otp to the email entered by the user for the authentication of email
 @app.post("/send_otp_email")
 def send_otp_email():
     user_email=request.json['email']
     # generate a 6-digit OTP
 
     otp = random.randint(100000, 999999)
-    session['otp']=otp
+    session['otp'] = {'value': otp, 'timestamp': time.time()}
     session.modified=True
     # set up email message
-    message = MIMEText(f'Your OTP for KMS CHATBOT is {otp}')
+    message = MIMEText(f'Your OTP for KMS Chatbot is {otp}. This otp is valid for only 2 minutes.')
     message['From'] = 'vp629393@gmail.com'
     message['To'] = user_email
     message['Subject'] = 'OTP verification'
@@ -99,16 +103,23 @@ def send_otp_email():
 
     return str(otp)
 
+
+# This is used for the otp verification for the email enterd by the user 
 @app.post("/verify_otp")
 def verify_otp():
     user_otp = request.json['otp']
     generated_otp = session.pop('otp', None) # retrieve the generated OTP from session
-    if user_otp == str(generated_otp):
+    if time.time() - generated_otp['timestamp'] > 120:
+        message = "OTP expired!"
+        return jsonify({'status': 'failure', 'message': message})
+    if user_otp == str(generated_otp['value']):
         message = "OTP verified successfully!"
         return jsonify({'status': 'success', 'message': message})
     else:
         message = "OTP verification failed!"
         return jsonify({'status': 'failure', 'message': message})
+
+
 # This will route to the chat page where user can interact with the bot.
 @app.route("/index")
 def index():
@@ -116,6 +127,7 @@ def index():
     email = session.get('email')
     phone = session.get('phone')
     return render_template("index.html", name=name, email=email, phone=phone)
+
 
 
 # This is used for taking the user input and giving response to the user by prediction based on the model training
